@@ -19,7 +19,7 @@ namespace TakeOwnership.Models
         /// <summary>
         /// True if files should be processed
         /// </summary>
-        [Option('f', "file", HelpText = "True if files should be processed")]
+        [Option('d', "directory", HelpText = "True if files should be processed")]
         public bool Directory { get; set; }
 
         /// <summary>
