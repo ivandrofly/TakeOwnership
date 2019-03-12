@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28705.295
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakeOwnership", "TakeOwnership\TakeOwnership.csproj", "{7448E8AB-1C2C-480C-A57D-1BE9BC268B36}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakeOwnership", "TakeOwnership\TakeOwnership.csproj", "{6E1BDA64-E867-4B25-B1DB-24352641C0A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7448E8AB-1C2C-480C-A57D-1BE9BC268B36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7448E8AB-1C2C-480C-A57D-1BE9BC268B36}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7448E8AB-1C2C-480C-A57D-1BE9BC268B36}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7448E8AB-1C2C-480C-A57D-1BE9BC268B36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E1BDA64-E867-4B25-B1DB-24352641C0A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E1BDA64-E867-4B25-B1DB-24352641C0A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E1BDA64-E867-4B25-B1DB-24352641C0A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E1BDA64-E867-4B25-B1DB-24352641C0A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

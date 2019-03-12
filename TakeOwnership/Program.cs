@@ -43,7 +43,8 @@ namespace TakeOwnership
                                 continue;
                             }
 
-                            // update ownership
+                            // use option provied owner otherwise use current user as the new object / filesystem owner
+                            string newOwner = string.IsNullOrEmpty(opt.Owner) ? $"{Environment.UserDomainName}/{Environment.UserName}" : opt.Owner;
 
                         }
                     }
