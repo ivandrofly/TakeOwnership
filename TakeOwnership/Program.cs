@@ -26,7 +26,6 @@ namespace TakeOwnership
                         WriteErrorMessage("Invalid <<Target>> path entered!");
                     }
 
-
                     if (opt.IsRecursive)
                     {
                         foreach (var fs in Directory.GetFileSystemEntries(opt.Target))

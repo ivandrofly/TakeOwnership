@@ -34,5 +34,11 @@ namespace TakeOwnership.Models
         /// </summary>
         [Option('v', "verbose", HelpText = "True if app should be more verbose")]
         public bool Verbose { get; set; }
+
+        /// <summary>
+        /// Name for the new owner (e.g: domain-name\username)
+        /// </summary>
+        [Option('o', "owner", Required = false, HelpText = "New owner name")]
+        public string Owner { get; set; }
     }
 }
