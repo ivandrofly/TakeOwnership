@@ -1,5 +1,5 @@
 # TakeOwnership
-Helps taking / setting ownership for file-systems in Windows / Linux / Mac
+Helps taking / setting ownership for file-systems in Windows
 
 ## Current Under-construction
 
