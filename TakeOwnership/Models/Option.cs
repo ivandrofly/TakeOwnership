@@ -2,7 +2,9 @@
 
 namespace TakeOwnership.Models
 {
-    class Option
+    using Interfaces;
+
+    public class Option : IOption
     {
         [Option('t', "target", Required = true, HelpText = "The target directory to be processed")]
         /// <summary>

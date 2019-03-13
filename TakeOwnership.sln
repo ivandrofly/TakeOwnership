@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.28705.295
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakeOwnership", "TakeOwnership\TakeOwnership.csproj", "{6E1BDA64-E867-4B25-B1DB-24352641C0A5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TakeOwnership.Core", "TakeOwnership.Core\TakeOwnership.Core.csproj", "{74C61046-FD7D-45E3-99C7-D11646EB4A17}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{6E1BDA64-E867-4B25-B1DB-24352641C0A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E1BDA64-E867-4B25-B1DB-24352641C0A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E1BDA64-E867-4B25-B1DB-24352641C0A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74C61046-FD7D-45E3-99C7-D11646EB4A17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74C61046-FD7D-45E3-99C7-D11646EB4A17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74C61046-FD7D-45E3-99C7-D11646EB4A17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74C61046-FD7D-45E3-99C7-D11646EB4A17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
