@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\ExtensionMethods.cs" />
     <Compile Include="Helpers\FileUtils.cs" />
     <Compile Include="Interfaces\IOption.cs" />
     <Compile Include="OwnershipTaker.cs" />

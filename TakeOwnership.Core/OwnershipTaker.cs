@@ -1,20 +1,23 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Security.AccessControl;
 using System.Security.Principal;
 using System.Threading.Tasks;
+using TakeOwnership.Helpers;
 
 namespace TakeOwnership
 {
+    using Core.Helpers;
+
     public class OwnershipTaker
     {
         public void TakeOwnerShip(string path, TakeOwnershipContext context)
         {
-            // TODO: Handle stackoverflow in case of very deep directories
-
             if (!(context.Options.File || context.Options.Directory))
             {
-                //return Task.FromCanceled(CancellationToken.None);
                 return;
             }
 
@@ -37,9 +40,10 @@ namespace TakeOwnership
                     // get dir ownership
                     var dirAccessCtrl = Directory.GetAccessControl(directory);
 
-                    // purge all access from previous owner
-                    var oldOwner = dirAccessCtrl.GetOwner(securityId);
-                    dirAccessCtrl.PurgeAccessRules(oldOwner);
+                    if (context.Options.PurgeAllOtherAccess)
+                    {
+                        dirAccessCtrl.PurgeAllAccess<SecurityIdentifier>();
+                    }
 
                     // set new owner
                     dirAccessCtrl.SetOwner(context.Owner);
@@ -53,7 +57,9 @@ namespace TakeOwnership
                     catch (UnauthorizedAccessException uae)
                     {
                         Debug.WriteLine(uae.Message);
-                        //throw uae;
+#if !DEBUG
+                        throw uae;  
+#endif
                     }
                 }
             }
@@ -66,10 +72,12 @@ namespace TakeOwnership
                 {
                     var fileAccessCtrl = File.GetAccessControl(file);
 
-                    var oldOwner = fileAccessCtrl.GetOwner(securityId);
+                    // remove all other owners of type SecurityIdentifier access
+                    if (context.Options.PurgeAllOtherAccess)
+                    {
+                        fileAccessCtrl.PurgeAllAccess<SecurityIdentifier>();
+                    }
 
-                    // purge old-owner access
-                    fileAccessCtrl.PurgeAccessRules(oldOwner);
                     fileAccessCtrl.SetOwner(context.Owner);
 
                     // set access rule async
@@ -82,15 +90,32 @@ namespace TakeOwnership
                     {
                         // notify the debug listener
                         Debug.WriteLine(uae.Message);
-                        //throw uae;
+#if !DEBUG
+                        throw uae;
+#endif
                     }
-
                 }
             }
 
         }
 
+        public IEnumerable<FileSystemAccessRule> GetUsersWithPermission(string path)
+        {
+            FileSystemSecurity fsSecurity = default;
+
+            if (FileUtils.IsFile(path))
+            {
+                fsSecurity = File.GetAccessControl(path);
+            }
+            else
+            {
+                fsSecurity = Directory.GetAccessControl(path);
+            }
+            //var ntAccountType = typeof(NTAccount);
+            foreach (FileSystemAccessRule fsAccessRule in fsSecurity.GetAccessRules(true, true, typeof(SecurityIdentifier)))
+            {
+                yield return fsAccessRule;
+            }
+        }
     }
 }
-
-// NOTE: RUN AS ADMINISTRATOR

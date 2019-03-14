@@ -8,5 +8,6 @@
         string Owner { get; set; }
         string Target { get; set; }
         bool Verbose { get; set; }
+        bool PurgeAllOtherAccess { get; set; }
     }
 }

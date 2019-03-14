@@ -30,7 +30,6 @@ namespace TakeOwnership.Models
         [Option('r', "recursive", HelpText = "True if all sub-directories should be processed")]
         public bool IsRecursive { get; set; }
 
-
         /// <summary>
         /// True if app should be more verbose
         /// </summary>
@@ -42,5 +41,8 @@ namespace TakeOwnership.Models
         /// </summary>
         [Option('o', "owner", Required = false, HelpText = "New owner name")]
         public string Owner { get; set; }
+
+        [Option('p', "purge", Required = false, HelpText = "True, if should remove all other users access control.")]
+        public bool PurgeAllOtherAccess { get; set; }
     }
 }
